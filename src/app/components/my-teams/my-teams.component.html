@@ -1,0 +1,74 @@
+<h1 style="text-align:center">My Teams</h1>
+<hr>
+<a routerLink="/add-team" href="#" class="btn btn-success btn-md btn-block">
+<i class="fa fa-plus"></i> Add New Team</a>
+        <br>
+        <br>
+<!--<div *ngIf="myTeams?.length > 0;else noTeams" class="container">
+
+    <div class="container" style="text-align:center">
+        <div *ngFor="let team of myTeams">
+            <div class="container" style="border:1px solid">
+
+                <h3>{{team.name}}</h3>
+                <p>{{team.game}}</p>
+                <p>{{team.region}}</p>
+                <p><a [routerLink]="['/team/'+team.$key]" href="" class="btn btn-secondary btn-sm">
+                    <i class="fa fa-arrow-circle-o-right"></i> Details</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>-->
+
+
+
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control animated fadeInLeft" name="gameString" placeholder="Search by game..." [(ngModel)]="gameString">
+
+        </div>
+    </div>
+</form>
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control animated fadeInRight" name="nameString" placeholder="Search by team name..." [(ngModel)]="nameString">
+
+        </div>
+    </div>
+</form>
+
+<div *ngIf="myTeams?.length > 0;else noTeams"  class="container">
+    <table class="table table-bordered animated bounceIn">
+      <thead>
+        <tr>
+         
+          <th>Name</th>
+          <th>Game</th>
+          <th>Region</th>
+          <th></th>
+          
+        </tr>
+      </thead>
+      <tbody *ngFor="let team of myTeams | filter: 'game' : gameString | filter: 'name' : nameString; let i = index">
+        <tr>
+          <td>{{team.name}}</td>
+          <td>{{team.game}}</td>
+          <td>{{team.region}}</td>
+          <td><a style="width:100%" [routerLink]="['/team/'+team.$key]" href="" class="btn btn-primary">
+                    <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+<ng-template #noTeams>
+    <hr>
+    <h5>Oops! I don't have any teams. </h5>
+</ng-template>

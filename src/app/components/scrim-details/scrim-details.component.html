@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/scrims" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Back to Scrims</a></div>
+  <div class="col-md-6">
+    <div class="btn-group pull-right">
+      <a *ngIf="recordOwner" [routerLink]="['/edit-scrim/'+id]" class="btn btn-secondary">Edit</a>
+      <button *ngIf="recordOwner" type="button" class="btn btn-danger" (click)="onDeleteClick()">Delete</button>
+     </div>
+  </div>
+</div>
+<hr>
+
+
+<div *ngIf="scrim && team" class="card animated fadeInUp">
+   <button *ngIf="recordOwner && scrim.acceptedStatus == '1'" type="button" class="btn btn-danger" (click)="onRepostClick()">Repost Scrim</button>
+    
+  <h4 style="text-align:center" class="card-header">Scrim Details</h4>
+  <div class="card-body">
+
+    <div class="card-block">
+      <p><span style="font-weight:bold">Description: </span> {{scrim.description}}</p>
+      <p><span style="font-weight:bold">Game: </span> {{scrim.game}}</p>
+      <p><span style="font-weight:bold">Time: </span> {{scrim.time}}</p>
+      <p><span style="font-weight:bold">Level of Play: </span> {{scrim.level}}</p>
+      <p><span style="font-weight:bold">Platform: </span> {{scrim.platform}}</p>
+      <p><span style="font-weight:bold">Region: </span> {{scrim.platform}}</p>
+      <p><span style="font-weight:bold">Team: </span> {{ team.name}}</p>
+      <p><a [routerLink]="['/team/'+team.$key]" href="" class="btn btn-primary"><i class="fa fa-arrow-circle-o-right"></i> Team Details</a></p>
+
+
+
+      <hr>
+      <form *ngIf="!recordOwner && scrim.acceptedStatus != '1'" novalidate #f="ngForm" (ngSubmit)="onAcceptClick(f)">
+
+        <div class="form-group">
+          <h5><label for="team">Select team to accept scrim</label></h5>
+
+          <select style="width:auto" [(ngModel)]="scrim.acceptedByTeam" class="form-control" #acceptedByTeam="ngModel" name="acceptedByTeam" required>
+          <option *ngFor="let team of myTeams" [value]="team.$key">{{team.name}}</option>
+        </select>
+
+          <div *ngIf="acceptedByTeam.errors?.required && acceptedByTeam.touched" class="alert alert-danger">
+            Team is required.
+          </div>
+        </div>
+
+        <!-- <button *ngIf="!recordOwner && scrim.acceptedStatus != '1'" type="submit" class="btn btn-danger" (click)="onAcceptClick()">Accept Scrim</button>-->
+
+        <input *ngIf="!recordOwner && scrim.acceptedStatus != '1'" type="submit" class="btn btn-danger" value="Accept Scrim">
+
+
+      </form>
+    </div>
+  </div>
+</div>

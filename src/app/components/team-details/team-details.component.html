@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/teams" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Back to Teams</a></div>
+  <div class="col-md-6">
+    <div class="btn-group pull-right">
+      <a *ngIf="recordOwner" [routerLink]="['/edit-team/'+id]" class="btn btn-secondary">Edit</a>
+      <button *ngIf="recordOwner" type="button" class="btn btn-danger" (click)="onDeleteClick()">Delete</button>
+    </div>
+  </div>
+</div>
+<hr>
+<div *ngIf="team" class="card">
+  <h3 style="text-align:center" class="card-header">{{team.name}}</h3>
+  <div class="card-block">
+    <p style="text-align:center">{{team.description}}</p>
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <h4 class="card-header">Player 1</h4>
+        <div class="card-block">
+          <h3 class="card-title">{{team.p1Name}}</h3>
+          <p class="card-text">Gamertag: {{team.p1GamerTag}}</p>
+          <a href="http://twitter.com/{{team.p1Twitter}}" class="btn btn-primary"><i class="fa fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+    </div>
+     <div class="col-sm-6">
+      <div class="card">
+        <h4 class="card-header">Player 2</h4>
+        <div class="card-block">
+          <h3 class="card-title">{{team.p2Name}}</h3>
+          <p class="card-text">Gamertag: {{team.p2GamerTag}}</p>
+          <a href="http://twitter.com/{{team.p2Twitter}}" class="btn btn-primary"><i class="fa fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+    </div>
+     <div class="col-sm-6">
+      <div class="card">
+        <h4 class="card-header">Player 3</h4>
+        <div class="card-block">
+          <h3 class="card-title">{{team.p3Name}}</h3>
+          <p class="card-text">Gamertag: {{team.p3GamerTag}}</p>
+          <a href="http://twitter.com/{{team.p3Twitter}}" class="btn btn-primary"><i class="fa fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <h4 class="card-header">Player 4</h4>
+        <div class="card-block">
+          <h3 class="card-title">{{team.p4Name}}</h3>
+          <p class="card-text">Gamertag: {{team.p4GamerTag}}</p>
+          <a href="http://twitter.com/{{team.p4Twitter}}" class="btn btn-primary"><i class="fa fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <h4 class="card-header">Player 5</h4>
+        <div class="card-block">
+          <h3 class="card-title">{{team.p5Name}}</h3>
+          <p class="card-text">Gamertag: {{team.p5GamerTag}}</p>
+          <a href="http://twitter.com/{{team.p5Twitter}}" class="btn btn-primary"><i class="fa fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <h4 class="card-header">Player 6</h4>
+        <div class="card-block">
+          <h3 class="card-title">{{team.p6Name}}</h3>
+          <p class="card-text">Gamertag: {{team.p6GamerTag}}</p>
+          <a href="http://twitter.com/{{team.p6Twitter}}" class="btn btn-primary"><i class="fa fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

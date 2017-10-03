@@ -1,0 +1,33 @@
+export interface Team {
+    $key?: string;
+    name?: string;
+    game?: string;
+    description?: string;
+    region?: string;
+    createdBy?: string;
+    createdDate?: string;
+    p1Name?: string;
+    p1GamerTag?: string;
+    p1Twitter?: string;
+    p1Steam?:string;
+    p2Name?: string;
+    p2GamerTag?: string;
+    p2Twitter?: string;
+    p2Steam?:string;
+    p3Name?: string;
+    p3GamerTag?: string;
+    p3Twitter?: string;
+    p3Steam?:string;
+    p4Name?: string;
+    p4GamerTag?: string;
+    p4Twitter?: string;
+    p4Steam?:string;
+    p5Name?: string;
+    p5GamerTag?: string;
+    p5Twitter?: string;
+    p5Steam?:string;
+    p6Name?: string;
+    p6GamerTag?: string;
+    p6Twitter?: string;
+    p6Steam?:string;
+}

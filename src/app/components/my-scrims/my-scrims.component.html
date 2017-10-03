@@ -1,0 +1,164 @@
+<h1 style="text-align:center">My Scrims</h1>
+<hr>
+<a routerLink="/add-scrim" href="#" class="btn btn-success btn-md btn-block">
+<i class="fa fa-plus"></i> Post New Scrim</a>
+<br>
+<br>
+
+<h1 style="text-align:center" id="heading">My Accepted Scrims</h1>
+
+
+<!--<div *ngIf="MyAcceptedScrims?.length > 0;else noAcceptedScrims" class="container">
+ 
+    <div class="container" style="text-align:center">
+       
+        <div *ngFor="let scrim of MyAcceptedScrims">
+            <div class="container" style="border:1px solid">
+
+                <h3>{{scrim.game}}</h3>
+                <p>{{scrim.time}}</p>
+                <p>{{scrim.region}}</p>
+                <p><a [routerLink]="['/scrim/'+scrim.$key]" href="" class="btn btn-secondary btn-sm">
+                    <i class="fa fa-arrow-circle-o-right"></i> Scrim Details</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>-->
+
+
+<div *ngIf="MyAcceptedScrims?.length > 0;else noAcceptedScrims" class="container">
+
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control animated fadeInLeft" name="gameString" placeholder="Search by game..." [(ngModel)]="gameString">
+
+      </div>
+    </div>
+  </form>
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control animated fadeInRight" name="platformString" placeholder="Search by platform..." [(ngModel)]="platformString">
+
+      </div>
+    </div>
+  </form>
+
+
+
+  <table class="table table-bordered animated bounceIn">
+    <thead>
+      <tr>
+
+        <th>Game</th>
+        <th>Time</th>
+        <th>Platform</th>
+        <th></th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let scrim of MyAcceptedScrims | filter: 'platform' : platformString | filter: 'game' : gameString; let i = index">
+      <tr>
+        <td>{{scrim.game}}</td>
+        <td>{{scrim.time}}</td>
+        <td>{{scrim.platform}}</td>
+        <td><a style="width:100%" [routerLink]="['/scrim/'+scrim.$key]" href="" class="btn btn-primary">
+                    <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+<!--<h1 style="text-align:center">My Posted Scrims</h1>
+<hr>
+
+<div *ngIf="MyPostedScrims?.length > 0;else noPostedScrims" class="container">
+
+  <div class="container" style="text-align:center">
+
+    <div *ngFor="let scrim of MyPostedScrims">
+      <div class="container" style="border:1px solid">
+
+        <h3>{{scrim.game}}</h3>
+        <p>{{scrim.time}}</p>
+        <p>{{scrim.region}}</p>
+        <p><a [routerLink]="['/scrim/'+scrim.$key]" href="" class="btn btn-secondary btn-sm">
+                    <i class="fa fa-arrow-circle-o-right"></i> Scrim Details</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>-->
+
+<h1 style="text-align:center">My Posted Scrims</h1>
+
+<div *ngIf="MyPostedScrims?.length > 0;else noPostedScrims" class="container">
+
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control animated fadeInLeft" name="gameString" placeholder="Search by game..." [(ngModel)]="gameString">
+
+      </div>
+    </div>
+  </form>
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control animated fadeInRight" name="platformString" placeholder="Search by platform..." [(ngModel)]="platformString">
+
+      </div>
+    </div>
+  </form>
+
+
+
+  <table class="table table-bordered animated bounceIn">
+    <thead>
+      <tr>
+
+        <th>Game</th>
+        <th>Time</th>
+        <th>Platform</th>
+        <th></th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let scrim of MyPostedScrims | filter: 'platform' : platformString | filter: 'game' : gameString; let i = index">
+      <tr>
+        <td>{{scrim.game}}</td>
+        <td>{{scrim.time}}</td>
+        <td>{{scrim.platform}}</td>
+        <td><a style="width:100%" [routerLink]="['/scrim/'+scrim.$key]" href="" class="btn btn-primary">
+                    <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+<ng-template #noPostedScrims>
+  
+  <h5>Oops! No Posted scrims available </h5>
+</ng-template>
+
+
+<ng-template #noAcceptedScrims>
+  
+  <h5>Oops! No Accepted scrims available </h5>
+</ng-template>

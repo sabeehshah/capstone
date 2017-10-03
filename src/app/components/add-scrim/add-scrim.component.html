@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/scrims" href="#" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i>
+  Back to Available Scrims</a>
+  </div>
+
+  <div class="col-md-6">
+
+  </div>
+
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h5>Post new scrim.</h5>
+  </div>
+
+  <div class="card-block">
+    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+      <div class="form-group">
+        <h5><label for="game">Game</label></h5>
+        <input type="text" class="form-control" [(ngModel)]="scrim.game" name="game" #scrimGame="ngModel" minlength="4" required>
+        <div *ngIf="scrimGame.errors?.required && scrimGame.touched" class="alert alert-danger">
+          scrim game is required
+        </div>
+        <div *ngIf="scrimGame.errors?.minlength && scrimGame.touched" class="alert alert-danger">
+          scrim game must be at least 4 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h5><label for="time">Time to scrim</label></h5>
+         <input type="text" class="form-control" [(ngModel)]="scrim.time" name="time" #scrimTime="ngModel" required>
+        <div *ngIf="scrimTime.errors?.required && scrimTime.touched" class="alert alert-danger">
+          scrim time is required
+        </div>
+      </div> 
+
+      
+
+      <div class="form-group">
+        <h5><label for="level">Level of play</label></h5>
+        <input type="text" placeholder="Example: 'PRO', 'AM', 'Casual'" class="form-control" [(ngModel)]="scrim.level" name="level"
+          #scrimLevel="ngModel" minlength="3" required>
+        <div *ngIf="scrimLevel.errors?.required && scrimLevel.touched" class="alert alert-danger">
+          scrim level is required
+        </div>
+        <div *ngIf="scrimLevel.errors?.minlength && scrimLevel.touched" class="alert alert-danger">
+          scrim level must be at least 3 characters. Example: 'PRO', 'AM', 'Casual'
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h5><label for="Description">Description</label></h5>
+        <textarea class="form-control" [(ngModel)]="scrim.description" name="description" #scrimDescription="ngModel" minlength="20"
+          required></textarea>
+        <div *ngIf="scrimDescription.errors?.required && scrimDescription.touched" class="alert alert-danger">
+          Description about the service is required
+        </div>
+        <div *ngIf="scrimDescription.errors?.minlength && scrimDescription.touched" class="alert alert-danger">
+          Must be at least 20 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h5><label for="platform">Platform</label></h5>
+
+        <select class="form-control" [(ngModel)]="scrim.platform" name="platform" #scrimPlatform="ngModel" required>
+         <option value="PS4">PS4</option>
+         <option value="XBOX">XBOX</option>
+         <option value="PC">PC</option>
+        </select>
+
+        <div *ngIf="scrimPlatform.errors?.required && scrimPlatform.touched" class="alert alert-danger">
+          Gaming platform is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h5><label for="team">Team</label></h5>
+
+        <select [(ngModel)]="scrim.team" class="form-control" #scrimTeam="ngModel" name="team" required>
+          <option *ngFor="let team of myTeams" [value]="team.$key">{{team.name}}</option>
+        </select>
+
+        <div *ngIf="scrimTeam.errors?.required && scrimTeam.touched" class="alert alert-danger">
+          Team is required.
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <h5><label for="region">Region</label></h5>
+        <input placeholder="Example-'North America'/'Europe'/'NA'/'EU' etc." type="text" class="form-control" [(ngModel)]="scrim.region" name="region" #scrimRegion="ngModel" minlength="6" required>
+        <div *ngIf="scrimRegion.errors?.required && scrimRegion.touched" class="alert alert-danger">
+          scrim region is required
+        </div>
+        <div *ngIf="scrimRegion.errors?.minlength && scrimRegion.touched" class="alert alert-danger">
+          scrim region must be at least 6 characters
+        </div>
+      </div>
+
+
+
+
+
+      <input type="submit" class="btn btn-primary btn-block" value="Submit">
+    </form>
+
+  </div>
+</div>

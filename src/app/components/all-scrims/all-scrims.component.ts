@@ -12,9 +12,9 @@ export class AllScrimsComponent implements OnInit {
   scrims: Scrim[];
   notMyScrims: Scrim[];
   loggedInUser: string;
-  currentDate:Date = new Date();
-  createdDateU:Date;
-
+  currentDate:any = new Date();
+  createdDateU:any;
+  date: string;
   
 
   
@@ -35,9 +35,12 @@ export class AllScrimsComponent implements OnInit {
           console.log(this.scrims);
 
 
-
-          this.notMyScrims = this.scrims.filter(scrim => scrim.createdBy != this.loggedInUser)
+          
+          this.notMyScrims = this.scrims.filter(scrim => scrim.createdBy != this.loggedInUser);
           console.log(this.notMyScrims);
+
+          
+          
 
           
         });

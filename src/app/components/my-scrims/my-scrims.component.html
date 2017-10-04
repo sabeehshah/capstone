@@ -34,7 +34,7 @@
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-addon"><i class="fa fa-search"></i></div>
-        <input type="text" class="form-control animated fadeInLeft" name="gameString" placeholder="Search by game..." [(ngModel)]="gameString">
+        <input type="text" class="form-control animated fadeInLeft" name="acceptedGameString" placeholder="Search by game..." [(ngModel)]="acceptedGameString">
 
       </div>
     </div>
@@ -43,7 +43,7 @@
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-addon"><i class="fa fa-search"></i></div>
-        <input type="text" class="form-control animated fadeInRight" name="platformString" placeholder="Search by platform..." [(ngModel)]="platformString">
+        <input type="text" class="form-control animated fadeInRight" name="acceptedPlatformString" placeholder="Search by platform..." [(ngModel)]="acceptedPlatformString">
 
       </div>
     </div>
@@ -62,7 +62,7 @@
 
       </tr>
     </thead>
-    <tbody *ngFor="let scrim of MyAcceptedScrims | filter: 'platform' : platformString | filter: 'game' : gameString; let i = index">
+    <tbody *ngFor="let scrim of MyAcceptedScrims | filter: 'platform' : acceptedPlatformString | filter: 'game' : acceptedGameString; let i = index">
       <tr>
         <td>{{scrim.game}}</td>
         <td>{{scrim.time}}</td>
@@ -108,7 +108,7 @@
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-addon"><i class="fa fa-search"></i></div>
-        <input type="text" class="form-control animated fadeInLeft" name="gameString" placeholder="Search by game..." [(ngModel)]="gameString">
+        <input type="text" class="form-control animated fadeInLeft" name="postedGameString" placeholder="Search by game..." [(ngModel)]="postedGameString">
 
       </div>
     </div>
@@ -117,7 +117,7 @@
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-addon"><i class="fa fa-search"></i></div>
-        <input type="text" class="form-control animated fadeInRight" name="platformString" placeholder="Search by platform..." [(ngModel)]="platformString">
+        <input type="text" class="form-control animated fadeInRight" name="postedPlatformString" placeholder="Search by platform..." [(ngModel)]="postedPlatformString">
 
       </div>
     </div>
@@ -136,7 +136,7 @@
 
       </tr>
     </thead>
-    <tbody *ngFor="let scrim of MyPostedScrims | filter: 'platform' : platformString | filter: 'game' : gameString; let i = index">
+    <tbody *ngFor="let scrim of MyPostedScrims | filter: 'platform' : postedPlatformString | filter: 'game' : postedGameString; let i = index">
       <tr>
         <td>{{scrim.game}}</td>
         <td>{{scrim.time}}</td>

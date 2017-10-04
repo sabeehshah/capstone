@@ -72,7 +72,7 @@ export class EditTeamComponent implements OnInit {
   
   onSubmit({value,valid}:{value:Team,valid:boolean}){
     value.createdDate = new Date().toLocaleDateString();
-    value.region = "";
+    
     value.createdBy =this.loggedInUser;
     if(!valid){
         console.log(value); 

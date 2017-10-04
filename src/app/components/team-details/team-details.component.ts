@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 @Component({
   selector: 'app-team-details',
   templateUrl: './team-details.component.html',
-  styleUrls: ['./team-details.component.css']
+  styleUrls: ['./team-details.component.css','../../../../node_modules/animate.css/animate.css']
 })
 export class TeamDetailsComponent implements OnInit {
   id: string;

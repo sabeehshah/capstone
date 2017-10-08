@@ -11,7 +11,7 @@ export interface Scrim{
     acceptedDate:string;
     acceptedStatus?:string;
     createdBy?:string;
-    createdDate?:string;
+    createdDate?:number;
     team?:string;
     acceptedByTeam?:string
 

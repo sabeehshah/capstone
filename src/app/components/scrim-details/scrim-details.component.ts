@@ -5,6 +5,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Team } from '../../models/Team';
 import { Scrim } from '../../models/Scrim';
+import '../../../../node_modules/emailjs/email.js';
+
 
 
 
@@ -39,6 +41,8 @@ export class ScrimDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+   
 
     this.authService.getAuth().subscribe(auth => {
       if (auth) {
@@ -90,6 +94,26 @@ export class ScrimDetailsComponent implements OnInit {
 
 
   }
+
+
+  /*sendEmail(){
+    var email = require("../../../../node_modules/emailjs/email");
+    var server = email.server.connect({
+      user: "sabeeh.shah@hotmail.com",
+      password:"sabeeh21,",
+      host:"smtp-mail.outlook.com",
+      ssl: true
+    });
+
+    server.send({
+      text:    "i hope this works", 
+      from:    "you <sabeeh.shah@hotmail.com>", 
+      to:      "sabeeh<sabeeh.shah@hotmail.com",
+      subject: "testing emailjs"
+   }, function(err, message) { console.log(err || message); });
+
+
+  }*/
 
   
 

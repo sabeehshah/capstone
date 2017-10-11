@@ -5,7 +5,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Team } from '../../models/Team';
 import { Scrim } from '../../models/Scrim';
-import '../../../../node_modules/emailjs/email.js';
+
 
 
 

@@ -1,5 +1,8 @@
 <h1 class="animated bounce" style="text-align:center">My Teams</h1>
 <hr>
+
+
+    
 <a routerLink="/add-team" href="#" class="btn btn-success btn-md btn-block">
 <i class="fa fa-plus"></i> Add New Team</a>
         <br>
@@ -60,7 +63,7 @@
           <td>{{team.name}}</td>
           <td>{{team.game}}</td>
           <td>{{team.region}}</td>
-          <td><a style="width:100%" [routerLink]="['/team/'+team.$key]" href="" class="btn btn-primary">
+          <td><a style="width:100%;background-color:tomato;color:white" [routerLink]="['/team/'+team.$key]" href="" class="btn">
                     <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
         </tr>
       </tbody>
@@ -70,5 +73,5 @@
 
 <ng-template #noTeams>
     <hr>
-    <h5>Oops! I don't have any teams. </h5>
+    <h5 style="text-align:center">Oops! I don't have any teams. Remember to create a team before posting a Scrim. </h5>
 </ng-template>

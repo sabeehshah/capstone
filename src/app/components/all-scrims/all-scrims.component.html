@@ -1,4 +1,32 @@
 <h1 class="animated bounce" style="text-align:center">Available Scrims</h1>
+<!-- Button trigger modal -->
+<div class="text-right">
+    <button style="text-align:center" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      <i class="fa fa-info-circle" aria-hidden="true">
+        HINT</i>
+      </button>
+</div>
+
+ <!-- Modal -->
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Adding a scrim.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Remember to create a team before adding a scrim, as every scrim post requires a team.
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
 <hr>
 <a routerLink="/add-scrim" href="#" class="btn btn-success btn-md btn-block animated fadeInLeft">
 <i class="fa fa-plus"></i> Post New Scrim</a>
@@ -29,33 +57,33 @@
 
   <form>
     <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-addon"><i class="fa fa-search"></i></div>
-            <input type="text" class="form-control animated fadeInLeft" name="gameString" placeholder="Search by game..." [(ngModel)]="gameString">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control animated fadeInLeft" name="gameString" placeholder="Search by game..." [(ngModel)]="gameString">
 
-        </div>
+      </div>
     </div>
-</form>
-<form>
+  </form>
+  <form>
     <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-addon"><i class="fa fa-search"></i></div>
-            <input type="text" class="form-control animated fadeInRight" name="platformString" placeholder="Search by platform..." [(ngModel)]="platformString">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control animated fadeInRight" name="platformString" placeholder="Search by platform..." [(ngModel)]="platformString">
 
-        </div>
+      </div>
     </div>
-</form>
+  </form>
 
   <div>
     <table class="table table-bordered animated bounceIn">
       <thead>
         <tr>
-         
+
           <th>Game</th>
           <th>Time</th>
           <th>Platform</th>
           <th></th>
-          
+
         </tr>
       </thead>
       <tbody *ngFor="let scrim of notMyScrims | filter: 'platform' : platformString | filter: 'game' : gameString; let i = index">
@@ -63,7 +91,7 @@
           <td>{{scrim.game}}</td>
           <td>{{scrim.time}}</td>
           <td>{{scrim.platform}}</td>
-          <td><a style="width:100%" [routerLink]="['/scrim/'+scrim.$key]" href="" class="btn btn-primary">
+          <td><a style="width:100%;background-color:tomato;color:white" [routerLink]="['/scrim/'+scrim.$key]" href="" class="btn">
                     <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
         </tr>
       </tbody>
@@ -76,11 +104,11 @@
 
 
 
-  
 
 
 
-<ng-template #noScrims>
-  <hr>
-  <h5>Oops! No scrims available </h5>
-</ng-template>
+
+  <ng-template #noScrims>
+    <hr>
+    <h5>Oops! No scrims available </h5>
+  </ng-template>

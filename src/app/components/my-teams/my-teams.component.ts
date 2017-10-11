@@ -21,6 +21,7 @@ export class MyTeamsComponent implements OnInit {
 
   ngOnInit() {
 
+
         this.authService.getAuth().subscribe(auth => {
       if (auth) {
         this.loggedInUser = auth.email;

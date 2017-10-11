@@ -33,7 +33,7 @@ export class EditScrimComponent implements OnInit {
     acceptedDate: '',
     acceptedStatus: '',
     createdBy: '',
-    createdDate: '',
+    createdDate:'',
     team: ''
 
   }

@@ -29,7 +29,7 @@ export class AddScrimComponent implements OnInit {
     acceptedDate: '',
     acceptedStatus: '',
     createdBy: '',
-    createdDate: 0,
+    createdDate: '',
     team: '',
     acceptedByTeam: ''
 
@@ -78,7 +78,7 @@ export class AddScrimComponent implements OnInit {
   }
 
   onSubmit({ value, valid }: { value: Scrim, valid: boolean }) {
-    value.createdDate = new Date().getTime();
+    value.createdDate = new Date().toLocaleDateString();
     value.createdBy = this.loggedInUser;
     value.acceptedBy = "";
     value.acceptedDate = "";

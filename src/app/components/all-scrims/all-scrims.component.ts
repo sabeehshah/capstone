@@ -26,6 +26,8 @@ export class AllScrimsComponent implements OnInit {
 
   ngOnInit() {
 
+    $("#testModal").show();
+
     this.authService.getAuth().subscribe(auth => {
       if (auth) {
         this.loggedInUser = auth.email;
@@ -37,9 +39,7 @@ export class AllScrimsComponent implements OnInit {
 
           
           this.notMyScrims = this.scrims.filter(scrim => scrim.createdBy != this.loggedInUser);
-          this.notMyScrims = this.notMyScrims.filter(function(scrim){
-            return scrim.createdDate > new Date().getTime();
-          });
+          
           console.log(this.notMyScrims);
 
 

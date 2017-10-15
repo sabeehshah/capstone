@@ -47,6 +47,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FooterComponent } from './components/footer/footer.component';
+import { MessageboardComponent } from './components/messageboard/messageboard.component';
 
 
 
@@ -97,6 +98,7 @@ export const firebaseConfig = {
     PageNotFoundComponent,
     FilterPipe,
     FooterComponent,
+    MessageboardComponent,
 
   ],
   imports: [

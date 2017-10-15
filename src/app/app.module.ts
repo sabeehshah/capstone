@@ -63,7 +63,8 @@ const appRoutes: Routes =[
   {path:'team/:id', component:TeamDetailsComponent, canActivate:[AuthGuard]},
   {path:'scrim/:id',component:ScrimDetailsComponent,canActivate:[AuthGuard]},
   {path:'edit-team/:id', component:EditTeamComponent, canActivate:[AuthGuard]},
-  {path:'edit-scrim/:id', component:EditScrimComponent, canActivate:[AuthGuard]}
+  {path:'edit-scrim/:id', component:EditScrimComponent, canActivate:[AuthGuard]},
+  {path:'messageBoard', component:MessageboardComponent, canActivate:[AuthGuard]}
 ]
 
 export const firebaseConfig = {

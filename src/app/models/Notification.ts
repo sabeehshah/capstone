@@ -4,5 +4,5 @@ export interface Notification{
     createdTime:string;
     message:string;
     readStatus:string;
-    
+    createdForUser:string;
 }

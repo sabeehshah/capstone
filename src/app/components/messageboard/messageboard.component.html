@@ -1,3 +1,55 @@
-<p>
-  messageboard works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-sm-2 hidden-xs-down sidebar">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#notifications">Notifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#inbox">Inbox</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#sent">Sent</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#other">Other</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="tab-content col">
+      <div class="tab-pane active" id="notifications">
+
+        <div class="col" *ngIf="myNotifications?.length > 0;else noNotifs">
+          <div *ngFor="let notif of myNotifications">
+              <div class="card card-outline-primary mb-3 text-center">
+                  <div class="card-block">
+                    <blockquote class="card-blockquote">
+                      <p>{{notif.message}}</p>
+                      <p>{{notif.createdDate}}</p>
+                      <footer>
+                        
+                        <button  id="{{notif.$key}}" class="btn btn-success" (click)="onSubmit()">Mark as read</button>
+                       
+                      </footer>
+                    </blockquote>
+                  </div>
+                </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="tab-pane" id="inbox">2</div>
+      <div class="tab-pane" id="sent">3</div>
+      <div class="tab-pane" id="other">4</div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+</div>

@@ -35,7 +35,7 @@
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">
           <a style="color:white" class="nav-link"  href="#" routerLink="/messageBoard">
-            <i class="fa fa-bell" aria-hidden="true">[0]</i>
+            <i class="fa fa-bell" aria-hidden="true">[{{notificationCount}}]</i>
           </a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">

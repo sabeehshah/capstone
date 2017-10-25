@@ -43,6 +43,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ScrimService } from './services/scrim.service';
 import { TeamService } from './services/team.service';
 import { PlayerService } from './services/player.service';
+import { NotificationService } from './services/notification.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -119,7 +120,8 @@ export const firebaseConfig = {
     TeamService,
     PlayerService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    NotificationService
   ],
   bootstrap: [AppComponent]
 })

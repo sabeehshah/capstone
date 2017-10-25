@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationService } from '../../services/notification.service';
+import { MessagesService } from '../../services/messages.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Notification } from '../../models/Notification';
+import { Message } from '../../models/Message';
 import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-messageboard',
@@ -11,23 +11,30 @@ import { AuthService } from '../../services/auth.service';
 })
 export class MessageboardComponent implements OnInit {
 
-  notification: Notification = {
+  
+
+  message: Message = {
     createdDate:'',
     createdTime:'',
+    messageTo:'',
+    messageFrom:'',
+    subject:'',
     message:'',
     readStatus:'',
-    createdForUser:''
-  }
+    mDeleted:''
+}
  
   id: string;
-  notifications: Notification[];
-  myNotifications: Notification[];
+  allMessages: Message[];
+  receivedMessages: Message[];
+  sentMessages: Message[];
+
   loggedInUser: string;
 
   
 
   constructor(
-    public notificationService: NotificationService,
+    public messagesService: MessagesService,
     public router: Router,
     public route: ActivatedRoute,
     public flashMessagesService: FlashMessagesService,
@@ -40,22 +47,25 @@ export class MessageboardComponent implements OnInit {
       if (auth) {
         this.loggedInUser = auth.email;
 
-        this.notificationService.getNotifications().subscribe(notifications => {
-          this.notifications = notifications;
-          console.log(this.notifications);
+        
+
+          this.messagesService.getMessages().subscribe(allMessages => {
+            this.allMessages = allMessages;
+            console.log(this.allMessages);
+
+            this.receivedMessages = this.allMessages.filter(message => message.messageTo == this.loggedInUser);
+            console.log(this.receivedMessages);
+
+            this.sentMessages = this.allMessages.filter(message => message.messageFrom == this.loggedInUser);
+            console.log(this.sentMessages);
+          });
 
 
 
-          this.myNotifications = this.notifications.filter(notification => notification.createdForUser == this.loggedInUser);
-
-          console.log(this.myNotifications);
 
 
 
-
-
-
-        });
+       
 
 
 

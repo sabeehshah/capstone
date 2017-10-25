@@ -55,12 +55,12 @@
         <h5><label for="Description">Description</label></h5>
         <textarea class="form-control" [(ngModel)]="scrim.description" name="description" #scrimDescription="ngModel" minlength="20"
           required></textarea>
-        <div *ngIf="scrimDescription.errors?.required && scrimDescription.touched" class="alert alert-danger">
-          Description about the service is required
+       <!-- <div *ngIf="scrimDescription.errors?.required && scrimDescription.touched" class="alert alert-danger">
+          Description about the scrim is required
         </div>
         <div *ngIf="scrimDescription.errors?.minlength && scrimDescription.touched" class="alert alert-danger">
           Must be at least 20 characters
-        </div>
+        </div> -->
       </div>
 
       <div class="form-group">

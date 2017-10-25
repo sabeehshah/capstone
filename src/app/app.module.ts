@@ -44,6 +44,7 @@ import { ScrimService } from './services/scrim.service';
 import { TeamService } from './services/team.service';
 import { PlayerService } from './services/player.service';
 import { NotificationService } from './services/notification.service';
+import { MessagesService } from './services/messages.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -121,7 +122,8 @@ export const firebaseConfig = {
     PlayerService,
     AuthService,
     AuthGuard,
-    NotificationService
+    NotificationService,
+    MessagesService
   ],
   bootstrap: [AppComponent]
 })

@@ -6,6 +6,7 @@ import { Team } from '../../models/Team';
 import { TeamService } from '../../services/team.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import 'rxjs/add/operator/map';
 
 
@@ -16,6 +17,10 @@ import 'rxjs/add/operator/map';
 })
 export class AddScrimComponent implements OnInit {
   loggedInUser: string;
+
+  sTime:string;
+  time = {hour: 12, minute: 30};
+  sDate = new Date();
 
   scrim: Scrim = {
     name: '',
@@ -84,6 +89,15 @@ export class AddScrimComponent implements OnInit {
     value.acceptedDate = "";
     value.acceptedStatus = "0";
     value.acceptedByTeam = "";
+
+    this.sDate.setHours(this.time.hour);
+    this.sDate.setMinutes(this.time.minute);
+    this.sDate.setSeconds(new Date().getSeconds())
+    this.sTime = this.sDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+    value.time = this.sTime;
+    
+
     if (!valid) {
       this.flashMessagesService.show('Please fill in the required fields.', { cssClass: 'alert-danger', timeout: 4000 })
       this.router.navigate(['add-scrim']);

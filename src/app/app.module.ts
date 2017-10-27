@@ -7,6 +7,7 @@ import { FlashMessagesModule} from 'angular2-flash-messages';
 import { AnimatorModule } from 'css-animator';
 import { Ng2TableModule } from 'ng2-table';
 import { DataTablesModule } from 'angular-datatables';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 //AngularFire Imports
 import { AngularFireModule } from 'angularfire2';
@@ -129,6 +130,7 @@ export const firebaseConfig = {
     FlashMessagesModule,
     Ng2TableModule,
     DataTablesModule,
+    NgbModule.forRoot()
   
   ],
   providers: [

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/User';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import 'rxjs/add/operator/map';
 
@@ -25,6 +25,8 @@ export class SendMessageComponent implements OnInit {
   user:User[];
 
   users:string[];
+
+ 
 
   message: Message = {
     createdDate:'',
@@ -48,6 +50,8 @@ export class SendMessageComponent implements OnInit {
   ngOnInit() {
 
    
+
+
 
     this.authService.getAuth().subscribe(auth => {
       if (auth) {

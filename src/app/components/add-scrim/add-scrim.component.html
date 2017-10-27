@@ -31,7 +31,9 @@
 
       <div class="form-group">
         <h5><label for="time">Time to scrim</label></h5>
-         <input type="text" class="form-control" [(ngModel)]="scrim.time" name="time" #scrimTime="ngModel" required>
+         <!-- <input type="text" class="form-control" [(ngModel)]="scrim.time" name="time" #scrimTime="ngModel" required> -->
+         <ngb-timepicker class="form-control" name="time" #scrimTime="ngModel" [(ngModel)]="time" required></ngb-timepicker>
+         <hr>
         <div *ngIf="scrimTime.errors?.required && scrimTime.touched" class="alert alert-danger">
           scrim time is required
         </div>

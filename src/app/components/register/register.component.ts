@@ -14,7 +14,11 @@ export class RegisterComponent implements OnInit {
 email:string;
 password:string;
 
-user:User;
+user: User = {
+  createdDate:'',
+  createdTime:'',
+  username:''
+}
 
 
   constructor(
@@ -36,6 +40,11 @@ user:User;
      
   
       this.flashMessagesService.show('New user registered.', { cssClass: 'alert-success', timeout:4000});
+      this.user.createdDate = new Date().toLocaleDateString();
+      this.user.createdTime = new Date().toLocaleTimeString();
+      this.user.username = this.email;
+      this.userService.newUser(this.user);
+  
       this.router.navigate(['/scrims']);
     })
     .catch((err) =>{

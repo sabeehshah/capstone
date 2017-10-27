@@ -42,15 +42,17 @@
       
 
       <div class="form-group">
-        <h5><label for="level">Level of play</label></h5>
-        <input type="text" placeholder="Example: 'PRO', 'AM', 'Casual'" class="form-control" [(ngModel)]="scrim.level" name="level"
-          #scrimLevel="ngModel" minlength="3" required>
-        <div *ngIf="scrimLevel.errors?.required && scrimLevel.touched" class="alert alert-danger">
-          scrim level is required
-        </div>
-        <div *ngIf="scrimLevel.errors?.minlength && scrimLevel.touched" class="alert alert-danger">
-          scrim level must be at least 3 characters. Example: 'PRO', 'AM', 'Casual'
-        </div>
+        <h5><label for="level">Skill Level</label></h5>
+        
+        <select class="form-control" [(ngModel)]="scrim.level" name="level" #scrimLevel="ngModel" required>
+            <option value="Pro">Pro</option>
+            <option value="Amateur">Amateur</option>
+            <option value="Casual">Casual</option>
+           </select>
+   
+           <div *ngIf="scrimLevel.errors?.required && scrimLevel.touched" class="alert alert-danger">
+             Level of skill is required.
+           </div>
       </div>
 
       <div class="form-group">

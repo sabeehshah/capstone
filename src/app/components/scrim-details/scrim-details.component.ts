@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../../services/team.service';
 import { ScrimService } from '../../services/scrim.service';
+import { MessagesService } from '../../services/messages.service';
+import { Message } from '../../models/Message';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Team } from '../../models/Team';
@@ -31,17 +33,24 @@ export class ScrimDetailsComponent implements OnInit {
   teams: Team[];
   myTeams: Team[];
 
+  Smessage:Message;
+
+
+ 
+
   constructor(
     public teamService: TeamService,
     public scrimService: ScrimService,
     public router: Router,
     public route: ActivatedRoute,
+    public messagesService: MessagesService,
     public flashMessagesService: FlashMessagesService,
     public authService: AuthService
   ) { }
 
   ngOnInit() {
 
+    
    
 
     this.authService.getAuth().subscribe(auth => {
@@ -117,7 +126,22 @@ export class ScrimDetailsComponent implements OnInit {
 
   
 
+
+  
+
+
+
+
+
+
+
+
+
+  
+
   onAcceptClick() {
+
+    
 
     if(this.scrim.acceptedByTeam != ""){
 
@@ -127,8 +151,26 @@ export class ScrimDetailsComponent implements OnInit {
       this.scrim.acceptedStatus = "1";
       
 
+      var AcceptMessage: Message = {
+        createdDate: new Date().toLocaleDateString(),
+        createdTime:new Date().toLocaleTimeString(),
+        messageTo:this.scrim.createdBy,
+        messageFrom:'admin@teamscrim.com',
+        subject:'Accepted Scrim',
+        message:'Your scrim has been accepted by a user. ',
+        readStatus:'0',
+        mDeleted:'0'
+    }
+ 
+      console.log(AcceptMessage)
+      this.messagesService.newMessage(AcceptMessage)
 
       this.scrimService.updateScrim(this.id,this.scrim);
+      
+
+
+
+
       this.flashMessagesService.show('Scrim has been accepted.', { cssClass: 'alert-success', timeout: 4000 });
       
       

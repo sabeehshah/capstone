@@ -128,7 +128,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     FlashMessagesModule,
     Ng2TableModule,
-    DataTablesModule
+    DataTablesModule,
+  
   ],
   providers: [
     AngularFireAuth,

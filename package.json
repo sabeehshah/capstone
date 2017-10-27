@@ -47,6 +47,7 @@
     "rxjs": "^5.1.0",
     "tether": "^1.4.0",
     "typescript": "^2.5.2",
+    "ui-select": "^0.19.8",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {

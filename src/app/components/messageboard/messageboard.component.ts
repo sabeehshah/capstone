@@ -29,6 +29,10 @@ export class MessageboardComponent implements OnInit {
   receivedMessages: Message[];
   sentMessages: Message[];
 
+  inboxEmpty:string;
+  outboxEmpty:string;
+
+
   loggedInUser: string;
 
   
@@ -53,11 +57,23 @@ export class MessageboardComponent implements OnInit {
             this.allMessages = allMessages;
             console.log(this.allMessages);
 
+            
+
             this.receivedMessages = this.allMessages.filter(message => message.messageTo == this.loggedInUser);
             console.log(this.receivedMessages);
+            if(this.receivedMessages.length > 0){
+              this.inboxEmpty = "0";
+            }else{
+              this.inboxEmpty = "1";
+            }
 
             this.sentMessages = this.allMessages.filter(message => message.messageFrom == this.loggedInUser);
             console.log(this.sentMessages);
+            if(this.sentMessages.length > 0){
+              this.outboxEmpty = "0";
+            }else{
+              this.outboxEmpty = "1";
+            }
           });
 
 

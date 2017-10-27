@@ -85,7 +85,7 @@
             
               <div class="tab-pane" id="inbox" style="padding:10px">
         
-                <table class="table table-responsive table-bordered animated bounceIn" style="table-layout: fixed;width:100%; word-wrap:break-word;">
+                <table *ngIf="receivedMessages?.length > 0;else noReceivedMessages" class="table table-responsive table-bordered animated bounceIn" style="table-layout: fixed;width:100%; word-wrap:break-word;">
                   <thead>
                     <tr>
                         <th></th>
@@ -114,7 +114,33 @@
         
         
               </div>
-              <div class="tab-pane" id="sent">3</div>
+              <div class="tab-pane" id="sent" style="padding:10px">
+
+                  <table *ngIf="sentMessages?.length > 0;else noSentMessages" class="table table-responsive table-bordered animated bounceIn" style="table-layout: fixed;width:100%; word-wrap:break-word;">
+                      <thead>
+                        <tr>
+                            <th></th>
+                          <th>From</th>
+                          <th>Date</th>
+                          <th>Message</th>
+                          
+                
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let message of sentMessages">
+                        <tr *ngIf="message.mDeleted == '0' ">
+                            <td>D</td>
+                          <td> {{message.messageFrom}}</td>
+                          <td> {{message.createdDate}}</td>
+                          <td> {{message.message}}</td>
+                          
+                        </tr>
+                      </tbody>
+                    </table>
+            
+
+
+              </div>
               <div class="tab-pane" id="other">4</div>
             </div>
       
@@ -127,3 +153,12 @@
     
     </div>
 </div>
+
+<ng-template #noSentMessages>
+    <hr>
+    <h5>Looks like you have not sent any messages yet.</h5>
+  </ng-template>
+  <ng-template #noReceivedMessages>
+      <hr>
+      <h5>Looks like you have not received any messages yet.</h5>
+    </ng-template>

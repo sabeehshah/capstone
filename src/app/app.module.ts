@@ -49,6 +49,7 @@ import { PlayerService } from './services/player.service';
 import { NotificationService } from './services/notification.service';
 import { MessagesService } from './services/messages.service';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
 import { AddProfileComponent } from './components/add-profile/add-profile.component';
@@ -135,7 +136,8 @@ export const firebaseConfig = {
     AuthService,
     AuthGuard,
     NotificationService,
-    MessagesService
+    MessagesService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

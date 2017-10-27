@@ -29,13 +29,11 @@ user:User;
 
   onSubmit(){
 
+   
+
     this.authService.register(this.email,this.password)
     .then((res) => {
-      this.user.username = this.email;
-      this.user.createdDate = new Date().toLocaleDateString();
-      this.user.createdTime = new Date().toLocaleTimeString();
-  
-      this.userService.newUser(this.user);
+     
   
       this.flashMessagesService.show('New user registered.', { cssClass: 'alert-success', timeout:4000});
       this.router.navigate(['/scrims']);

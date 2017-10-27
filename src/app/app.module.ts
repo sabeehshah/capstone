@@ -55,6 +55,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { AddProfileComponent } from './components/add-profile/add-profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
+import { ConfirmAccountComponent } from './components/confirm-account/confirm-account.component';
 
 
 
@@ -115,6 +116,7 @@ export const firebaseConfig = {
     AddProfileComponent,
     EditProfileComponent,
     ProfileDetailsComponent,
+    ConfirmAccountComponent,
 
   ],
   imports: [

@@ -1,6 +1,7 @@
-<div class="container-fluid">
-  <div class="row">
-    <nav class="col-sm-2 hidden-xs-down sidebar">
+<div class="container">
+  <h1 style="text-align:center">MESSAGE BOARD</h1>
+  <!--<div class="row">
+    <nav class="col-sm-2">
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
           <a class="nav-link active" data-toggle="tab" href="#inbox">Inbox</a>
@@ -16,16 +17,128 @@
 
     <div class="tab-content col">
     
-      <div class="tab-pane" id="inbox">2</div>
+      <div class="tab-pane" id="inbox">
+
+        <table class="table table-bordered animated bounceIn" style="table-layout: fixed;width:100%; word-wrap:break-word;">
+          <thead>
+            <tr>
+    
+              <th style="width:25%">From</th>
+              <th>Date</th>
+              <th style="width:50%">Message</th>
+              <th></th>
+    
+            </tr>
+          </thead>
+          <tbody *ngFor="let message of receivedMessages">
+            <tr *ngIf="message.mDeleted == '0' ">
+              <td style="width:25%"> {{message.messageFrom}}</td>
+              <td> {{message.createdDate}}</td>
+              <td style="width:50%">{{message.message}}</td>
+              <td>D</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+
+
+
+
+      </div>
       <div class="tab-pane" id="sent">3</div>
       <div class="tab-pane" id="other">4</div>
     </div>
 
+  </div>-->
+</div>
+
+<div class="text-right">
+    <button style="text-align:center" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        <i class="fa fa-envelope-o" aria-hidden="true"> Compose Message</i>
+      </button>
+</div>
+
+ <!-- Modal -->
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Adding a scrim.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Remember to create a team before adding a scrim, as every scrim post requires a team.
+        </div>
+        
+      </div>
+    </div>
   </div>
 
+  <hr>
 
-
-
-
-
+<div class="row">
+    <div class="col-sm-2" style="border:1px solid">
+        <ul style="padding:10px" class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#inbox">Inbox</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#sent">Sent</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#other">Other</a>
+            </li>
+          </ul>
+    
+    </div>
+    <div  class="col-sm-10" style="border:1px solid">
+        <div class="tab-content col">
+            
+              <div class="tab-pane" id="inbox" style="padding:10px">
+        
+                <table class="table table-responsive table-bordered animated bounceIn" style="table-layout: fixed;width:100%; word-wrap:break-word;">
+                  <thead>
+                    <tr>
+                        <th></th>
+                      <th>From</th>
+                      <th>Date</th>
+                      <th>Message</th>
+                      
+            
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let message of receivedMessages">
+                    <tr *ngIf="message.mDeleted == '0' ">
+                        <td>D</td>
+                      <td> {{message.messageFrom}}</td>
+                      <td> {{message.createdDate}}</td>
+                      <td> {{message.message}}</td>
+                      
+                    </tr>
+                  </tbody>
+                </table>
+        
+        
+        
+        
+        
+        
+        
+              </div>
+              <div class="tab-pane" id="sent">3</div>
+              <div class="tab-pane" id="other">4</div>
+            </div>
+      
+      
+      
+    
+    
+    
+    
+    
+    </div>
 </div>

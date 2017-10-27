@@ -50,6 +50,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FooterComponent } from './components/footer/footer.component';
 import { MessageboardComponent } from './components/messageboard/messageboard.component';
+import { SendMessageComponent } from './components/send-message/send-message.component';
 
 
 
@@ -102,6 +103,7 @@ export const firebaseConfig = {
     FilterPipe,
     FooterComponent,
     MessageboardComponent,
+    SendMessageComponent,
 
   ],
   imports: [

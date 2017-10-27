@@ -38,6 +38,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MessageboardComponent } from './components/messageboard/messageboard.component';
+import { SendMessageComponent } from './components/send-message/send-message.component';
 
 //Service Imports
 import { ScrimService } from './services/scrim.service';
@@ -48,9 +51,9 @@ import { MessagesService } from './services/messages.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
-import { FooterComponent } from './components/footer/footer.component';
-import { MessageboardComponent } from './components/messageboard/messageboard.component';
-import { SendMessageComponent } from './components/send-message/send-message.component';
+import { AddProfileComponent } from './components/add-profile/add-profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 
 
 
@@ -67,7 +70,8 @@ const appRoutes: Routes =[
   {path:'scrim/:id',component:ScrimDetailsComponent,canActivate:[AuthGuard]},
   {path:'edit-team/:id', component:EditTeamComponent, canActivate:[AuthGuard]},
   {path:'edit-scrim/:id', component:EditScrimComponent, canActivate:[AuthGuard]},
-  {path:'messageBoard', component:MessageboardComponent, canActivate:[AuthGuard]}
+  {path:'messageBoard', component:MessageboardComponent, canActivate:[AuthGuard]},
+  {path:'composeMessage', component:SendMessageComponent, canActivate:[AuthGuard]}
 ]
 
 export const firebaseConfig = {
@@ -104,6 +108,9 @@ export const firebaseConfig = {
     FooterComponent,
     MessageboardComponent,
     SendMessageComponent,
+    AddProfileComponent,
+    EditProfileComponent,
+    ProfileDetailsComponent,
 
   ],
   imports: [

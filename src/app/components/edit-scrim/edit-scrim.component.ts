@@ -20,6 +20,10 @@ export class EditScrimComponent implements OnInit {
   loggedInUser: string;
   counter: number = 0;
 
+  sTime:string;
+  time = {hour: 12, minute: 30};
+  sDate = new Date();
+
 
   scrim: Scrim = {
     name: '',
@@ -134,7 +138,7 @@ export class EditScrimComponent implements OnInit {
 
 
 
-
+    
 
 
   }
@@ -150,6 +154,13 @@ export class EditScrimComponent implements OnInit {
     value.acceptedBy = this.scrim.acceptedBy;
     value.acceptedDate = this.scrim.acceptedDate;
     value.acceptedStatus = this.scrim.acceptedStatus;
+
+    this.sDate.setHours(this.time.hour);
+    this.sDate.setMinutes(this.time.minute);
+    this.sDate.setSeconds(new Date().getSeconds())
+    this.sTime = this.sDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+    value.time = this.sTime;
 
 
     if (!valid) {

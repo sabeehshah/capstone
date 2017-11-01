@@ -58,6 +58,7 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
+import { MessageDetailsComponent } from './components/message-details/message-details.component';
 
 
 
@@ -118,7 +119,8 @@ export const firebaseConfig = {
     SendMessageComponent,
     AddProfileComponent,
     EditProfileComponent,
-    ProfileDetailsComponent
+    ProfileDetailsComponent,
+    MessageDetailsComponent
 
   ],
   imports: [

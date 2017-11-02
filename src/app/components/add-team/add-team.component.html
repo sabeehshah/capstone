@@ -34,19 +34,36 @@
             Game is required
           </div>
           <div *ngIf="teamGame.errors?.minlength && teamGame.touched" class="alert alert-danger">
-            Team name must be at least 6 characters
+             game must be at least 6 characters
           </div>
         </div>
         
         <div class="form-group">
           <h5><label for="region">Region</label></h5>
-          <input type="text" class="form-control" [(ngModel)]="team.region" name="region" #teamRegion="ngModel" minlength="6" required>
+          <!-- <input placeholder="Example-'North America'/'Europe'/'NA'/'EU' etc." type="text" class="form-control" [(ngModel)]="scrim.region" name="region" #scrimRegion="ngModel" minlength="6" required> -->
+         
+          <select class="form-control" [(ngModel)]="team.region" name="region" #teamRegion="ngModel" required>
+              <option value="Asia-Pacific">Asia-Pacific</option>
+              <option value="Brazil">Brazil</option>
+              <option value="China">China</option>
+              <option value="Commonwealth of Independent States">Commonwealth of Independent States</option>
+              <option value="Europe">Europe</option>
+              <option value="Japan">Japan</option>
+              <option value="Korea">Korea</option>
+              <option value="Latin America - North">Latin America - North</option>
+              <option value="Latin America - South">Latin America - South</option>
+              <option value="North-America">North-America</option>
+              <option value="Oceania">Oceania</option>
+              <option value="South-East Asia">South-East Asia</option>
+              <option value="Turkey">Turkey</option>
+              <option value="Other">Other</option>
+             </select>
+         
+         
           <div *ngIf="teamRegion.errors?.required && teamRegion.touched" class="alert alert-danger">
-            Region is required
+            team region is required
           </div>
-          <div *ngIf="teamRegion.errors?.minlength && teamRegion.touched" class="alert alert-danger">
-            Team name must be at least 6 characters
-          </div>
+          
         </div>
         
         

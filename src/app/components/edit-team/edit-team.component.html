@@ -91,16 +91,16 @@
               </div>
 
               <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p1GamerTag" name="p1GamerTag" #p1GamerTag="ngModel" minlength="6"
-                  required>
-                <div *ngIf="p1GamerTag.errors?.required && p1GamerTag.touched" class="alert alert-danger">
-                  player gamer tag is required.
+                  <h5><label for="name">PSN</label></h5>
+                  <input type="text" class="form-control" [(ngModel)]="team.p1PSN" name="p1PSN" #p1GamerTag="ngModel">
                 </div>
-                <div *ngIf="p1GamerTag.errors?.minlength && p1GamerTag.touched" class="alert alert-danger">
-                  Team name must be at least 6 characters
+                
+                
+                <div class="form-group">
+                  <h5><label for="name">XBOX</label></h5>
+                  <input type="text" class="form-control" [(ngModel)]="team.p1Xbox" name="p1Xbox" #p1GamerTag="ngModel" >
                 </div>
-              </div>
+                
 
               <div class="form-group">
                 <h5><label for="name">Twitter</label></h5>
@@ -140,16 +140,16 @@
               </div>
 
               <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p2GamerTag" name="p2GamerTag" #p2GamerTag="ngModel" minlength="6"
-                  required>
-                <div *ngIf="p2GamerTag.errors?.required && p2GamerTag.touched" class="alert alert-danger">
-                  player gamer tag is required.
+                  <h5><label for="name">PSN</label></h5>
+                  <input type="text" class="form-control" [(ngModel)]="team.p2PSN" name="p2PSN" #p1GamerTag="ngModel">
                 </div>
-                <div *ngIf="p2GamerTag.errors?.minlength && p2GamerTag.touched" class="alert alert-danger">
-                  Team name must be at least 6 characters
+                
+                
+                <div class="form-group">
+                  <h5><label for="name">XBOX</label></h5>
+                  <input type="text" class="form-control" [(ngModel)]="team.p2Xbox" name="p2Xbox" #p1GamerTag="ngModel" >
                 </div>
-              </div>
+
 
               <div class="form-group">
                 <h5><label for="name">Twitter</label></h5>
@@ -185,8 +185,16 @@
               </div>
 
               <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p3GamerTag" name="p3GamerTag" #p3GamerTag="ngModel"></div>
+                  <h5><label for="name">PSN</label></h5>
+                  <input type="text" class="form-control" [(ngModel)]="team.p3PSN" name="p3PSN" #p1GamerTag="ngModel">
+                </div>
+                
+                
+                <div class="form-group">
+                  <h5><label for="name">XBOX</label></h5>
+                  <input type="text" class="form-control" [(ngModel)]="team.p3Xbox" name="p3Xbox" #p1GamerTag="ngModel" >
+                </div>
+
 
               <div class="form-group">
                 <h5><label for="name">Twitter</label></h5>
@@ -222,10 +230,17 @@
               </div>
 
               <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p4GamerTag" name="p4GamerTag" #p4GamerTag="ngModel">
+              <h5><label for="name">PSN</label></h5>
+              <input type="text" class="form-control" [(ngModel)]="team.p4PSN" name="p4PSN" #p1GamerTag="ngModel">
+            </div>
+            
+            
+            <div class="form-group">
+              <h5><label for="name">XBOX</label></h5>
+              <input type="text" class="form-control" [(ngModel)]="team.p4Xbox" name="p4Xbox" #p1GamerTag="ngModel" >
+            </div>
 
-              </div>
+
 
               <div class="form-group">
                 <h5><label for="name">Twitter</label></h5>
@@ -260,11 +275,16 @@
 
               </div>
 
-              <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p5GamerTag" name="p5GamerTag" #p5GamerTag="ngModel">
-
-              </div>
+             <div class="form-group">
+            <h5><label for="name">PSN</label></h5>
+            <input type="text" class="form-control" [(ngModel)]="team.p5PSN" name="p5PSN" #p1GamerTag="ngModel">
+          </div>
+          
+          
+          <div class="form-group">
+            <h5><label for="name">XBOX</label></h5>
+            <input type="text" class="form-control" [(ngModel)]="team.p5Xbox" name="p5Xbox" #p1GamerTag="ngModel" >
+          </div>
 
               <div class="form-group">
                 <h5><label for="name">Twitter</label></h5>
@@ -300,10 +320,15 @@
               </div>
 
               <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p6GamerTag" name="p6GamerTag" #p6GamerTag="ngModel">
-
-              </div>
+                  <h5><label for="name">PSN</label></h5>
+                  <input type="text" class="form-control" [(ngModel)]="team.p6PSN" name="p6PSN" #p1GamerTag="ngModel">
+                </div>
+                
+                
+                <div class="form-group">
+                  <h5><label for="name">XBOX</label></h5>
+                  <input type="text" class="form-control" [(ngModel)]="team.p6Xbox" name="p6Xbox" #p1GamerTag="ngModel" >
+                </div>
 
               <div class="form-group">
                 <h5><label for="name">Twitter</label></h5>

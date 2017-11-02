@@ -1,84 +1,84 @@
 <div class="row">
   <div class="col-md-6">
     <a routerLink="/teams" href="#" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i>
-  Back to List of teams</a>
+      Back to List of teams</a>
+    </div>
+    
+    <div class="col-md-6">
+      
+    </div>
+    
   </div>
-
-  <div class="col-md-6">
-
-  </div>
-
-</div>
-
-<div class="card">
-  <div class="card-header">
-    <h5>Add Team</h5>
-  </div>
-  <div class="card-block">
-    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <div class="form-group">
-        <h5><label for="name">Name</label></h5>
-        <input type="text" class="form-control" [(ngModel)]="team.name" name="name" #teamName="ngModel" minlength="4" required>
-        <div *ngIf="teamName.errors?.required && teamName.touched" class="alert alert-danger">
-          Team name is required
+  
+  <div class="card">
+    <div class="card-header">
+      <h5>Add Team</h5>
+    </div>
+    <div class="card-block">
+      <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-group">
+          <h5><label for="name">Name</label></h5>
+          <input type="text" class="form-control" [(ngModel)]="team.name" name="name" #teamName="ngModel" minlength="4" required>
+          <div *ngIf="teamName.errors?.required && teamName.touched" class="alert alert-danger">
+            Team name is required
+          </div>
+          <div *ngIf="teamName.errors?.minlength && teamName.touched" class="alert alert-danger">
+            Team name must be at least 4 characters
+          </div>
         </div>
-        <div *ngIf="teamName.errors?.minlength && teamName.touched" class="alert alert-danger">
-          Team name must be at least 4 characters
+        
+        <div class="form-group">
+          <h5><label for="name">Game</label></h5>
+          <input type="text" class="form-control" [(ngModel)]="team.game" name="game" #teamGame="ngModel" minlength="6" required>
+          <div *ngIf="teamGame.errors?.required && teamGame.touched" class="alert alert-danger">
+            Game is required
+          </div>
+          <div *ngIf="teamGame.errors?.minlength && teamGame.touched" class="alert alert-danger">
+            Team name must be at least 6 characters
+          </div>
         </div>
-      </div>
-
-      <div class="form-group">
-        <h5><label for="name">Game</label></h5>
-        <input type="text" class="form-control" [(ngModel)]="team.game" name="game" #teamGame="ngModel" minlength="6" required>
-        <div *ngIf="teamGame.errors?.required && teamGame.touched" class="alert alert-danger">
-          Game is required
+        
+        <div class="form-group">
+          <h5><label for="region">Region</label></h5>
+          <input type="text" class="form-control" [(ngModel)]="team.region" name="region" #teamRegion="ngModel" minlength="6" required>
+          <div *ngIf="teamRegion.errors?.required && teamRegion.touched" class="alert alert-danger">
+            Region is required
+          </div>
+          <div *ngIf="teamRegion.errors?.minlength && teamRegion.touched" class="alert alert-danger">
+            Team name must be at least 6 characters
+          </div>
         </div>
-        <div *ngIf="teamGame.errors?.minlength && teamGame.touched" class="alert alert-danger">
-          Team name must be at least 6 characters
-        </div>
-      </div>
-
-       <div class="form-group">
-        <h5><label for="region">Region</label></h5>
-        <input type="text" class="form-control" [(ngModel)]="team.region" name="region" #teamRegion="ngModel" minlength="6" required>
-        <div *ngIf="teamRegion.errors?.required && teamRegion.touched" class="alert alert-danger">
-          Region is required
-        </div>
-        <div *ngIf="teamRegion.errors?.minlength && teamRegion.touched" class="alert alert-danger">
-          Team name must be at least 6 characters
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <h5><label for="Description">Description</label></h5>
-        <textarea class="form-control" [(ngModel)]="team.description" name="description" #teamDescription="ngModel" minlength="20"
+        
+        
+        <div class="form-group">
+          <h5><label for="Description">Description</label></h5>
+          <textarea class="form-control" [(ngModel)]="team.description" name="description" #teamDescription="ngModel" minlength="20"
           required></textarea>
-        <div *ngIf="teamDescription.errors?.required && teamDescription.touched" class="alert alert-danger">
-          Description about the service is required
+          <div *ngIf="teamDescription.errors?.required && teamDescription.touched" class="alert alert-danger">
+            Description about the service is required
+          </div>
+          <div *ngIf="teamDescription.errors?.minlength && teamDescription.touched" class="alert alert-danger">
+            Must be at least 20 characters
+          </div>
         </div>
-        <div *ngIf="teamDescription.errors?.minlength && teamDescription.touched" class="alert alert-danger">
-          Must be at least 20 characters
-        </div>
-      </div>
-
-
-
-
-      <div id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="card">
-          <div class="card-header" role="tab" id="headingOne">
-            <h5 class="mb-0">
-              <button data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
+        
+        
+        
+        
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="card">
+            <div class="card-header" role="tab" id="headingOne">
+              <h5 class="mb-0">
+                <button data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
                 class="btn btn-secondary btn-md btn-block"><i class="fa fa-plus"></i>
-         Add Player #1
-        </button>
+                Add Player #1
+              </button>
             </h5>
           </div>
-
+          
           <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
             <div class="card-block">
-
+              
               <div class="form-group">
                 <h5><label for="name">Name</label></h5>
                 <input type="text" class="form-control" [(ngModel)]="team.p1Name" name="p1Name" #p1Name="ngModel" minlength="6" required>
@@ -89,30 +89,44 @@
                   Team name must be at least 6 characters
                 </div>
               </div>
-
+              
+              
+              
+              
               <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p1GamerTag" name="p1GamerTag" #p1GamerTag="ngModel" minlength="6"
-                  required>
-                <div *ngIf="p1GamerTag.errors?.required && p1GamerTag.touched" class="alert alert-danger">
-                  player gamer tag is required.
-                </div>
-                <div *ngIf="p1GamerTag.errors?.minlength && p1GamerTag.touched" class="alert alert-danger">
-                  Team name must be at least 6 characters
-                </div>
+                <h5><label for="name">PSN</label></h5>
+                <input type="text" class="form-control" [(ngModel)]="team.p1PSN" name="p1PSN" #p1GamerTag="ngModel">
               </div>
-
+              
+              
+              <div class="form-group">
+                <h5><label for="name">XBOX</label></h5>
+                <input type="text" class="form-control" [(ngModel)]="team.p1Xbox" name="p1Xbox" #p1GamerTag="ngModel" >
+              </div>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <div class="form-group">
                 <h5><label for="name">Twitter</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p1Twitter" name="p1Twitter" #p1Twitter="ngModel" >
+                <input type="text" class="form-control" [(ngModel)]="team.p1Twitter" name="p1Twitter" #p1Twitter="ngModel">
               </div>
-
+              
               <div class="form-group">
                 <h5><label for="name">Steam Profile URL</label></h5>
-                <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p1Steam" name="p1Steam" #p1Steam="ngModel" >
+                <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p1Steam"
+                name="p1Steam" #p1Steam="ngModel">
               </div>
-
-
+              
+              
             </div>
           </div>
         </div>
@@ -120,210 +134,241 @@
           <div class="card-header" role="tab" id="headingTwo">
             <h5 class="mb-0">
               <button class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
-                class="btn btn-secondary btn-md btn-block"><i class="fa fa-plus"></i>
-         Add Player #2
-        </button>
-            </h5>
-          </div>
-          <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-            <div class="card-block">
-
-              <div class="form-group">
-                <h5><label for="name">Name</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p2Name" name="p2Name" #p2Name="ngModel" minlength="6" required>
-                <div *ngIf="p2Name.errors?.required && p2Name.touched" class="alert alert-danger">
-                  player name is required.
-                </div>
-                <div *ngIf="p2Name.errors?.minlength && p2Name.touched" class="alert alert-danger">
-                  Team name must be at least 6 characters
-                </div>
+              class="btn btn-secondary btn-md btn-block"><i class="fa fa-plus"></i>
+              Add Player #2
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="card-block">
+            
+            <div class="form-group">
+              <h5><label for="name">Name</label></h5>
+              <input type="text" class="form-control" [(ngModel)]="team.p2Name" name="p2Name" #p2Name="ngModel" minlength="6" required>
+              <div *ngIf="p2Name.errors?.required && p2Name.touched" class="alert alert-danger">
+                player name is required.
               </div>
-
-              <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p2GamerTag" name="p2GamerTag" #p2GamerTag="ngModel" minlength="6"
-                  required>
-                <div *ngIf="p2GamerTag.errors?.required && p2GamerTag.touched" class="alert alert-danger">
-                  player gamer tag is required.
-                </div>
-                <div *ngIf="p2GamerTag.errors?.minlength && p2GamerTag.touched" class="alert alert-danger">
-                  Team name must be at least 6 characters
-                </div>
+              <div *ngIf="p2Name.errors?.minlength && p2Name.touched" class="alert alert-danger">
+                Team name must be at least 6 characters
               </div>
-
-              <div class="form-group">
-                <h5><label for="name">Twitter</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p2Twitter" name="p2Twitter" #p2Twitter="ngModel" >
-
-
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Steam Profile URL</label></h5>
-                <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p2Steam" name="p2Steam" #p2Steam="ngModel" >
-              </div>
-
             </div>
+            
+            <div class="form-group">
+                <h5><label for="name">PSN</label></h5>
+                <input type="text" class="form-control" [(ngModel)]="team.p2PSN" name="p2PSN" #p1GamerTag="ngModel">
+              </div>
+              
+              
+              <div class="form-group">
+                <h5><label for="name">XBOX</label></h5>
+                <input type="text" class="form-control" [(ngModel)]="team.p2Xbox" name="p2Xbox" #p1GamerTag="ngModel" >
+              </div>
+              
+            
+            <div class="form-group">
+              <h5><label for="name">Twitter</label></h5>
+              <input type="text" class="form-control" [(ngModel)]="team.p2Twitter" name="p2Twitter" #p2Twitter="ngModel">
+              
+              
+            </div>
+            
+            <div class="form-group">
+              <h5><label for="name">Steam Profile URL</label></h5>
+              <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p2Steam"
+              name="p2Steam" #p2Steam="ngModel">
+            </div>
+            
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-header" role="tab" id="headingThree">
-            <h5 class="mb-0">
-              <button class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
-                class="btn btn-secondary btn-md btn-block"><i class="fa fa-plus"></i>
-          Add Player #3
-        </button>
-            </h5>
+      </div>
+      
+      <div class="card">
+        <div class="card-header" role="tab" id="headingThree">
+          <h5 class="mb-0">
+            <button class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+            class="btn btn-secondary btn-md btn-block"><i class="fa fa-plus"></i>
+            Add Player #3
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+        <div class="card-block">
+          
+          <div class="form-group">
+            <h5><label for="name">Name</label></h5>
+            <input type="text" class="form-control" [(ngModel)]="team.p3Name" name="p3Name" #p3Name="ngModel">
+            
           </div>
-          <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="card-block">
-
-              <div class="form-group">
-                <h5><label for="name">Name</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p3Name" name="p3Name" #p3Name="ngModel">
-
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p3GamerTag" name="p3GamerTag" #p3GamerTag="ngModel"></div>
-
-              <div class="form-group">
-                <h5><label for="name">Twitter</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p3Twitter" name="p3Twitter" #p3Twitter="ngModel">
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Steam Profile URL</label></h5>
-                <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p3Steam" name="p3Steam" #p3Steam="ngModel" >
-              </div>
-
+          
+          <div class="form-group">
+              <h5><label for="name">PSN</label></h5>
+              <input type="text" class="form-control" [(ngModel)]="team.p3PSN" name="p3PSN" #p1GamerTag="ngModel">
             </div>
+            
+            
+            <div class="form-group">
+              <h5><label for="name">XBOX</label></h5>
+              <input type="text" class="form-control" [(ngModel)]="team.p3Xbox" name="p3Xbox" #p1GamerTag="ngModel" >
+            </div>
+            
+            
+            <div class="form-group">
+              <h5><label for="name">Twitter</label></h5>
+              <input type="text" class="form-control" [(ngModel)]="team.p3Twitter" name="p3Twitter" #p3Twitter="ngModel">
+            </div>
+            
+            <div class="form-group">
+              <h5><label for="name">Steam Profile URL</label></h5>
+              <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p3Steam"
+              name="p3Steam" #p3Steam="ngModel">
+            </div>
+            
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-header" role="tab" id="headingFour">
-            <h5 class="mb-0">
-              <button class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
-                class="btn btn-secondary btn-md btn-block"> <i class="fa fa-plus"></i>
-          Add Player #4
-        </button>
-            </h5>
+      </div>
+      
+      <div class="card">
+        <div class="card-header" role="tab" id="headingFour">
+          <h5 class="mb-0">
+            <button class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
+            class="btn btn-secondary btn-md btn-block"> <i class="fa fa-plus"></i>
+            Add Player #4
+          </button>
+        </h5>
+      </div>
+      <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+        <div class="card-block">
+          
+          <div class="form-group">
+            <h5><label for="name">Name</label></h5>
+            <input type="text" class="form-control" [(ngModel)]="team.p4Name" name="p4Name" #p4Name="ngModel">
+            
           </div>
-          <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
-            <div class="card-block">
-
-              <div class="form-group">
-                <h5><label for="name">Name</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p4Name" name="p4Name" #p4Name="ngModel">
-
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p4GamerTag" name="p4GamerTag" #p4GamerTag="ngModel">
-
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Twitter</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p4Twitter" name="p4Twitter" #p4Twitter="ngModel">
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Steam Profile URL</label></h5>
-                <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p4Steam" name="p4Steam" #p4Steam="ngModel" >
-              </div>
-
+          
+          <div class="form-group">
+              <h5><label for="name">PSN</label></h5>
+              <input type="text" class="form-control" [(ngModel)]="team.p4PSN" name="p4PSN" #p1GamerTag="ngModel">
             </div>
+            
+            
+            <div class="form-group">
+              <h5><label for="name">XBOX</label></h5>
+              <input type="text" class="form-control" [(ngModel)]="team.p4Xbox" name="p4Xbox" #p1GamerTag="ngModel" >
+            </div>
+            
+          
+          <div class="form-group">
+            <h5><label for="name">Twitter</label></h5>
+            <input type="text" class="form-control" [(ngModel)]="team.p4Twitter" name="p4Twitter" #p4Twitter="ngModel">
           </div>
+          
+          <div class="form-group">
+            <h5><label for="name">Steam Profile URL</label></h5>
+            <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p4Steam"
+            name="p4Steam" #p4Steam="ngModel">
+          </div>
+          
         </div>
-
-        <div class="card">
-          <div class="card-header" role="tab" id="headingFive">
-            <h5 class="mb-0">
-              <button class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive"
-                class="btn btn-secondary btn-md btn-block"><i class="fa fa-plus"></i>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-header" role="tab" id="headingFive">
+        <h5 class="mb-0">
+          <button class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive"
+          class="btn btn-secondary btn-md btn-block"><i class="fa fa-plus"></i>
           Add Player #5
         </button>
-            </h5>
-          </div>
-          <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
-            <div class="card-block">
-
-              <div class="form-group">
-                <h5><label for="name">Name</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p5Name" name="p5Name" #p5Name="ngModel">
-
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p5GamerTag" name="p5GamerTag" #p5GamerTag="ngModel">
-
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Twitter</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p5Twitter" name="p5Twitter" #p5Twitter="ngModel">
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Steam Profile URL</label></h5>
-                <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p5Steam" name="p5Steam" #p5Steam="ngModel" >
-              </div>
-
-            </div>
-          </div>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="card-block">
+        
+        <div class="form-group">
+          <h5><label for="name">Name</label></h5>
+          <input type="text" class="form-control" [(ngModel)]="team.p5Name" name="p5Name" #p5Name="ngModel">
+          
         </div>
-
-        <div class="card">
-          <div class="card-header" role="tab" id="headingSix">
-            <h5 class="mb-0">
-              <button class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix"
-                class="btn btn-secondary btn-md btn-block"><i class="fa fa-plus"></i>
-          Add Player #6
-        </button>
-            </h5>
+        
+        <div class="form-group">
+            <h5><label for="name">PSN</label></h5>
+            <input type="text" class="form-control" [(ngModel)]="team.p5PSN" name="p5PSN" #p1GamerTag="ngModel">
           </div>
-          <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
-            <div class="card-block">
-
-              <div class="form-group">
-                <h5><label for="name">Name</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p6Name" name="p6Name" #p6Name="ngModel">
-
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Gamer Tag</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p6GamerTag" name="p6GamerTag" #p6GamerTag="ngModel">
-
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Twitter</label></h5>
-                <input type="text" class="form-control" [(ngModel)]="team.p6Twitter" name="p6Twitter" #p6Twitter="ngModel">
-              </div>
-
-              <div class="form-group">
-                <h5><label for="name">Steam Profile URL</label></h5>
-                <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p6Steam" name="p6Steam" #p6Steam="ngModel" >
-              </div>
-
-            </div>
+          
+          
+          <div class="form-group">
+            <h5><label for="name">XBOX</label></h5>
+            <input type="text" class="form-control" [(ngModel)]="team.p5Xbox" name="p5Xbox" #p1GamerTag="ngModel" >
           </div>
+          
+        
+        <div class="form-group">
+          <h5><label for="name">Twitter</label></h5>
+          <input type="text" class="form-control" [(ngModel)]="team.p5Twitter" name="p5Twitter" #p5Twitter="ngModel">
         </div>
-
-
+        
+        <div class="form-group">
+          <h5><label for="name">Steam Profile URL</label></h5>
+          <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p5Steam"
+          name="p5Steam" #p5Steam="ngModel">
+        </div>
+        
       </div>
-
-
-
-      <input type="submit" class="btn btn-primary btn-block" value="Submit">
-
-    </form>
+    </div>
   </div>
+  
+  <div class="card">
+    <div class="card-header" role="tab" id="headingSix">
+      <h5 class="mb-0">
+        <button class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix"
+        class="btn btn-secondary btn-md btn-block"><i class="fa fa-plus"></i>
+        Add Player #6
+      </button>
+    </h5>
+  </div>
+  <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+    <div class="card-block">
+      
+      <div class="form-group">
+        <h5><label for="name">Name</label></h5>
+        <input type="text" class="form-control" [(ngModel)]="team.p6Name" name="p6Name" #p6Name="ngModel">
+        
+      </div>
+      
+      <div class="form-group">
+          <h5><label for="name">PSN</label></h5>
+          <input type="text" class="form-control" [(ngModel)]="team.p6PSN" name="p6PSN" #p1GamerTag="ngModel">
+        </div>
+        
+        
+        <div class="form-group">
+          <h5><label for="name">XBOX</label></h5>
+          <input type="text" class="form-control" [(ngModel)]="team.p6Xbox" name="p6Xbox" #p1GamerTag="ngModel" >
+        </div>
+        
+      
+      <div class="form-group">
+        <h5><label for="name">Twitter</label></h5>
+        <input type="text" class="form-control" [(ngModel)]="team.p6Twitter" name="p6Twitter" #p6Twitter="ngModel">
+      </div>
+      
+      <div class="form-group">
+        <h5><label for="name">Steam Profile URL</label></h5>
+        <input placeholder="Example:http://steamcommunity.com/id/sabeeh10/" type="text" class="form-control" [(ngModel)]="team.p6Steam"
+        name="p6Steam" #p6Steam="ngModel">
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+
+<input type="submit" class="btn btn-primary btn-block" value="Submit">
+
+</form>
+</div>
 </div>

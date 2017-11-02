@@ -21,22 +21,34 @@ export class AddTeamComponent implements OnInit {
     createdDate:'', 
     description:'',
     game:'',
-    p1GamerTag:'',
+   
+    p1PSN:'',
+    p1Xbox:'',
     p1Name:'',
     p1Twitter:'',
-    p2GamerTag:'',
+    
+    p2PSN:'',
+    p2Xbox:'',
     p2Name:'',
     p2Twitter:'',
-    p3GamerTag:'',
+   
+    p3PSN:'',
+    p3Xbox:'',
     p3Name:'',
     p3Twitter:'',
-    p4GamerTag:'',
+    
+    p4PSN:'',
+    p4Xbox:'',
     p4Name:'',
     p4Twitter:'',
-    p5GamerTag:'',
+    
+    p5PSN:'',
+    p5Xbox:'',
     p5Name:'',
     p5Twitter:'',
-    p6GamerTag:'',
+   
+    p6PSN:'',
+    p6Xbox:'',
     p6Name:'',
     p6Twitter:'',
     region:''

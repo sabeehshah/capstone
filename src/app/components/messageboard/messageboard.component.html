@@ -55,119 +55,125 @@
 </div>
 
 <div class="text-right">
-    
 
-      <a routerLink="/composeMessage" href="#" class="btn btn-success animated fadeInLeft">
+
+  <a routerLink="/composeMessage" href="#" class="btn btn-success animated fadeInLeft">
         <i class="fa fa-envelope-o"></i> Compose Message</a>
 </div>
 
- 
 
-  <hr>
+
+<hr>
 
 <div class="row">
-    <div class="col-sm-2" style="border:1px solid">
-        <ul style="padding:10px" class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#inbox">Inbox</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#sent">Sent</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#other">Other</a>
-            </li>
-          </ul>
-    
-    </div>
-    <div  class="col-sm-10" style="border:1px solid">
-        <div class="tab-content col">
-            
-              <div class="tab-pane active" id="inbox" style="padding:10px">
-        
-                <table *ngIf="receivedMessages?.length > 0;else noReceivedMessages" class="table table-responsive table-bordered animated bounceIn" style="table-layout: fixed;width:100%; word-wrap:break-word;">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>From</th>
-                      <th>Date</th>
-                      <th>Subject</th>
-                      <th></th>
-                      <th></th>
-                      
-            
-                    </tr>
-                  </thead>
-                  <tbody *ngFor="let message of receivedMessages">
-                    <tr *ngIf="message.mDeleted == '0' ">
-                      <td><i *ngIf="message.readStatus == '0'" i style="color:red" class="fa fa-exclamation" aria-hidden="true"></i></td>
-                      <td> {{message.messageFrom}}</td>
-                      <td> {{message.createdDate}}</td>
-                      <td> {{message.subject}}</td>
-                      <td><a style="width:100%;background-color:tomato;color:white" [routerLink]="['/message/'+message.$key]" href="" class="btn">
+  <div class="col-sm-2" style="border:1px solid">
+    <ul style="padding:10px" class="nav nav-pills flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#inbox">Inbox</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sent">Sent</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#other">Other</a>
+      </li>
+    </ul>
+
+  </div>
+  <div class="col-sm-10" style="border:1px solid">
+    <div class="tab-content col">
+
+      <div class="tab-pane active" id="inbox" style="padding:10px">
+
+        <table *ngIf="receivedMessages?.length > 0;else noReceivedMessages" class="table table-responsive table-bordered animated bounceIn"
+          style="table-layout: fixed;width:100%; word-wrap:break-word;">
+          <thead>
+            <tr>
+              <th></th>
+              <th>From</th>
+              <th>Date</th>
+              <th>Subject</th>
+              <th></th>
+              <th></th>
+
+
+            </tr>
+          </thead>
+          <tbody *ngFor="let message of receivedMessages">
+            <tr *ngIf="message.mDeleted == '0' ">
+              <td><i *ngIf="message.readStatus == '0'" i style="color:red" class="fa fa-exclamation" aria-hidden="true"></i></td>
+              <td> {{message.messageFrom}}</td>
+              <td> {{message.createdDate}}</td>
+              <td> {{message.subject}}</td>
+              <td><a style="width:100%;background-color:tomato;color:white" [routerLink]="['/message/'+message.$key]" href=""
+                  class="btn">
                         <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
-                      <td> <button id="{{message.$key}}" *ngIf="message.readStatus == '0'" type="submit" class="btn btn-success" (click)="MarkasRead(message.$key)">Mark as Read</button>
-                      </td>
-                    </tr>
-                    
-                  </tbody>
-                </table>
-        
-        
-        
-        
-        
-        
-        
-              </div>
-              <div class="tab-pane" id="sent" style="padding:10px">
+              <td> <button id="{{message.$key}}" *ngIf="message.readStatus == '0'" type="submit" class="btn btn-success" (click)="MarkasRead(message.$key)">Mark as Read</button>
+              </td>
+            </tr>
 
-                  <table *ngIf="sentMessages?.length > 0;else noSentMessages" class="table table-responsive table-bordered animated bounceIn" style="table-layout: fixed;width:100%; word-wrap:break-word;">
-                      <thead>
-                        <tr>
-                            
-                          <th>From</th>
-                          <th>Date</th>
-                          <th>Subject</th>
-                          <th></th>
-                          
-                
-                        </tr>
-                      </thead>
-                      <tbody *ngFor="let message of sentMessages">
-                        <tr *ngIf="message.mDeleted == '0' ">
-                           
-                          <td> {{message.messageFrom}}</td>
-                          <td> {{message.createdDate}}</td>
-                          <td> {{message.subject}}</td>
-                          <td><a style="width:100%;background-color:tomato;color:white" [routerLink]="['/message/'+message.$key]" href="" class="btn">
+          </tbody>
+        </table>
+
+
+
+
+
+
+
+      </div>
+      <div class="tab-pane" id="sent" style="padding:10px">
+
+        <table *ngIf="sentMessages?.length > 0;else noSentMessages" class="table table-responsive table-bordered animated bounceIn"
+          style="table-layout: fixed;width:100%; word-wrap:break-word;">
+          <thead>
+            <tr>
+
+              <th>To</th>
+              <th>Date</th>
+              <th>Subject</th>
+              <th></th>
+
+
+            </tr>
+          </thead>
+          <tbody *ngFor="let message of sentMessages">
+            <tr *ngIf="message.mDeleted == '0' ">
+
+              <td> {{message.messageTo}}</td>
+              <td> {{message.createdDate}}</td>
+              <td> {{message.subject}}</td>
+              <td><a style="width:100%;background-color:tomato;color:white" [routerLink]="['/message/'+message.$key]" href=""
+                  class="btn">
                             <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
-                          
-                        </tr>
-                      </tbody>
-                    </table>
-            
+
+            </tr>
+          </tbody>
+        </table>
 
 
-              </div>
-              <div class="tab-pane" id="other"><h2>Coming Soon!</h2></div>
-            </div>
-      
-      
-      
-    
-    
-    
-    
-    
+
+      </div>
+      <div class="tab-pane" id="other">
+        <h2>Coming Soon!</h2>
+      </div>
     </div>
+
+
+
+
+
+
+
+
+  </div>
 </div>
 
 <ng-template #noSentMessages>
-    <hr>
-    <h5>Looks like you have not sent any messages yet.</h5>
-  </ng-template>
-  <ng-template #noReceivedMessages>
-      <hr>
-      <h5>Looks like you have not received any messages yet.</h5>
-    </ng-template>
+  <hr>
+  <h5>Looks like you have not sent any messages yet.</h5>
+</ng-template>
+<ng-template #noReceivedMessages>
+  <hr>
+  <h5>Looks like you have not received any messages yet.</h5>
+</ng-template>

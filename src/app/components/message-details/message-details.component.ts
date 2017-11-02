@@ -78,4 +78,23 @@ export class MessageDetailsComponent implements OnInit {
     }
   }
 
+  MarkasRead(value) {
+    var messageId = value
+
+    this.messagesService.getMessage(messageId).subscribe(message => {
+      this.message = message;
+      console.log(this.message);
+
+      this.message.readStatus = "1";
+
+      this.messagesService.updateMessage(this.message.$key,this.message);
+
+      
+    
+  });
+
+  this.flashMessagesService.show('Messaged marked as read.', {cssClass:'alert-success',timeout:2000})
+  
+}
+
 }

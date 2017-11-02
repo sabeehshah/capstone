@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { Router} from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { NotificationService } from '../../services/notification.service';
-import { Notification } from '../../models/Notification' 
+import { MessagesService } from '../../services/messages.service';
+import { Message } from '../../models/Message';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -14,13 +14,13 @@ import 'rxjs/add/operator/map';
 export class NavbarComponent implements OnInit {
 isLoggedIn:boolean;
 loggedInUser:string;
-notificationCount:string;
-notifications:Notification[];
-myNotifications:Notification[];
+messagesCount:string;
+messages:Message[];
+myMessages:Message[];
 
   constructor(
     private authService:AuthService,
-    public notificationService: NotificationService,
+    public messegesService: MessagesService,
     private router:Router,
     private flashMessagesService:FlashMessagesService
 
@@ -32,22 +32,22 @@ myNotifications:Notification[];
         this.isLoggedIn = true;
         this.loggedInUser = auth.email;
 
-        this.notificationService.getNotifications().subscribe(notifications => {
-          this.notifications = notifications;
-          console.log(this.notifications);
+        this.messegesService.getMessages().subscribe(messages => {
+          this.messages = messages;
+          console.log(this.messages);
 
 
 
-          this.myNotifications = this.notifications.filter(notification => notification.createdForUser == this.loggedInUser
-             && notification.readStatus == "0");
+          this.myMessages = this.messages.filter(message => message.messageTo == this.loggedInUser
+             && message.readStatus == "0");
 
-          console.log(this.myNotifications);
+          console.log(this.myMessages);
 
-          if(this.myNotifications.length > 0){
-            this.notificationCount = this.myNotifications.length.toString();
+          if(this.myMessages.length > 0){
+            this.messagesCount = this.myMessages.length.toString();
             
           }else{
-            this.notificationCount = "0";
+            this.messagesCount = "0";
           }
           
 

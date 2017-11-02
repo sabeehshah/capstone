@@ -31,6 +31,9 @@ export class MessagesService {
     return this.messages.remove(id);
   }
 
+  updateMessage(id:string, message:Message){
+    return this.messages.update(id,message);
+  }
  
 
 }

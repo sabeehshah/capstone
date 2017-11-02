@@ -88,24 +88,28 @@
                 <table *ngIf="receivedMessages?.length > 0;else noReceivedMessages" class="table table-responsive table-bordered animated bounceIn" style="table-layout: fixed;width:100%; word-wrap:break-word;">
                   <thead>
                     <tr>
-                      
+                      <th></th>
                       <th>From</th>
                       <th>Date</th>
                       <th>Subject</th>
+                      <th></th>
+                      <th></th>
                       
             
                     </tr>
                   </thead>
                   <tbody *ngFor="let message of receivedMessages">
                     <tr *ngIf="message.mDeleted == '0' ">
-                        
+                      <td><i *ngIf="message.readStatus == '0'" i style="color:red" class="fa fa-exclamation" aria-hidden="true"></i></td>
                       <td> {{message.messageFrom}}</td>
                       <td> {{message.createdDate}}</td>
                       <td> {{message.subject}}</td>
                       <td><a style="width:100%;background-color:tomato;color:white" [routerLink]="['/message/'+message.$key]" href="" class="btn">
                         <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
-                      
+                      <td> <button id="{{message.$key}}" *ngIf="message.readStatus == '0'" type="submit" class="btn btn-success" (click)="MarkasRead(message.$key)">Mark as Read</button>
+                      </td>
                     </tr>
+                    
                   </tbody>
                 </table>
         

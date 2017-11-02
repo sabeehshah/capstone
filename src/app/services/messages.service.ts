@@ -22,7 +22,7 @@ export class MessagesService {
   }
 
   getMessage(id:string){
-    this.message = this.af.object('/message/'+id) as FirebaseObjectObservable<Message>;
+    this.message = this.af.object('/messages/'+id) as FirebaseObjectObservable<Message>;
     return this.message;
     
   }

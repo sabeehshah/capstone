@@ -91,6 +91,7 @@
                       
                       <th>From</th>
                       <th>Date</th>
+                      <th>Subject</th>
                       
             
                     </tr>
@@ -100,7 +101,9 @@
                         
                       <td> {{message.messageFrom}}</td>
                       <td> {{message.createdDate}}</td>
-                      <td></td>
+                      <td> {{message.subject}}</td>
+                      <td><a style="width:100%;background-color:tomato;color:white" [routerLink]="['/message/'+message.$key]" href="" class="btn">
+                        <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
                       
                     </tr>
                   </tbody>
@@ -121,6 +124,7 @@
                             
                           <th>From</th>
                           <th>Date</th>
+                          <th>Subject</th>
                           <th></th>
                           
                 
@@ -131,7 +135,9 @@
                            
                           <td> {{message.messageFrom}}</td>
                           <td> {{message.createdDate}}</td>
-                          <td></td>
+                          <td> {{message.subject}}</td>
+                          <td><a style="width:100%;background-color:tomato;color:white" [routerLink]="['/message/'+message.$key]" href="" class="btn">
+                            <i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
                           
                         </tr>
                       </tbody>

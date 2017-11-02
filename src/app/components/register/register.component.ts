@@ -48,8 +48,9 @@ user: User = {
       this.router.navigate(['/scrims']);
     })
     .catch((err) =>{
-       this.flashMessagesService.show('Please write valid email and password for registration.', { cssClass: 'alert-danger', timeout:4000});
+       this.flashMessagesService.show(err, { cssClass: 'alert-danger', timeout:4000});
       this.router.navigate(['/register']);
+      console.log(err)
     })
   }
 }

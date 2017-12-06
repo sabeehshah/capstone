@@ -46,7 +46,7 @@ import { AddProfileComponent } from './components/add-profile/add-profile.compon
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 import { MessageDetailsComponent } from './components/message-details/message-details.component';
-
+import { HomeComponent } from './components/home/home.component';
 
 
 //Service Imports
@@ -62,11 +62,13 @@ import { FilterPipe } from './pipes/filter.pipe';
 
 
 
+
 const appRoutes: Routes =[
   {path:'scrims', component:AllScrimsComponent, canActivate:[AuthGuard]},
   {path:'myscrims', component:MyScrimsComponent, canActivate:[AuthGuard]},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
+  {path:'home',component:HomeComponent},
   {path:'newProfile',component:AddProfileComponent},
   {path:'editProfile',component:EditProfileComponent},
   {path:'Profile',component:ProfileDetailsComponent},
@@ -121,7 +123,8 @@ export const firebaseConfig = {
     AddProfileComponent,
     EditProfileComponent,
     ProfileDetailsComponent,
-    MessageDetailsComponent
+    MessageDetailsComponent,
+    HomeComponent
 
   ],
   imports: [

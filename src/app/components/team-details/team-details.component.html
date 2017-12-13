@@ -2,14 +2,75 @@
   <br>
 <div class="row">
   <div class="col-md-6">
-    <a routerLink="/teams" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Back to Teams</a></div>
+    <a routerLink="/teams" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Back to Teams</a>
+  </div>
   <div class="col-md-6">
     <div class="btn-group pull-right">
       <a *ngIf="recordOwner" [routerLink]="['/edit-team/'+id]" class="btn btn-secondary">Edit</a>
       <button *ngIf="recordOwner" type="button" class="btn btn-danger" (click)="onDeleteClick()">Delete</button>
+      <button *ngIf="!recordOwner" style="text-align:center" type="button" class="btn btn-success" data-toggle="modal" data-target="#addReviewModal">
+        <i class="fa fa-plus" aria-hidden="true">
+         Write Review</i>
+        </button>
     </div>
   </div>
 </div>
+
+
+<!--ADD REVIEW MODAL -->
+
+<div class="modal fade" id="addReviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adding a review.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <p>Write a comment about the team.</p>
+
+       <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+        
+        
+             
+        
+              <div class="form-group">
+                <h5><label for="comment">Comment</label></h5>
+                <input type="text" class="form-control" [(ngModel)]="review.comment" name="comment" #comment="ngModel" required>
+                <div *ngIf="comment.errors?.required && comment.touched" class="alert alert-danger">
+                  Review comment is required
+                </div>
+              </div>
+        
+       
+              <input type="submit" class="btn btn-primary btn-block" value="Submit">
+      </form>
+        
+
+
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <hr>
 <div *ngIf="team" class="card">
   <h3 style="text-align:center" class="card-header animated bounce">{{team.name}}</h3>
@@ -96,8 +157,33 @@
 
 
 </div>
+<hr>
+
+
+  <h1 style="text-align:center">My Reviews</h1>
+
+  <div *ngIf="myReviews?.length > 0;else noReviews" class="container"> 
+    <div *ngFor="let review of myReviews">
+      <div class="card card-outline-primary mb-3 text-center">
+        <div class="card-block">
+          <blockquote class="card-blockquote">
+            <p>Comment: {{review.comment}}</p>
+            <footer>Submitted By: <cite title="Source Name">{{review.createdBy}}</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
 
 
 
 </div>
 
+<ng-template #noReviews>
+  <hr>
+  <h5>No reviews available.  </h5>
+</ng-template>

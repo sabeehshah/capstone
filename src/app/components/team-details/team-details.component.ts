@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../../services/team.service';
+import { UpvoteService } from '../../services/upvote.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Team } from '../../models/Team';
 import { AuthService } from '../../services/auth.service';
 import 'rxjs/add/operator/map';
+
 
 @Component({
   selector: 'app-team-details',
@@ -17,13 +19,15 @@ export class TeamDetailsComponent implements OnInit {
   loggedInUser: string;
   recordOwner: boolean;
 
+  
+
   constructor(
     public teamService: TeamService,
     public router: Router,
     public route: ActivatedRoute,
     public flashMessagesService: FlashMessagesService,
     public authService: AuthService
-
+    
   ) { }
 
 
@@ -36,6 +40,9 @@ export class TeamDetailsComponent implements OnInit {
     this.authService.getAuth().subscribe(auth => {
       if (auth) {
         this.loggedInUser = auth.email;
+
+
+    
 
         //Get ID
         this.id = this.route.snapshot.params['id'];
@@ -57,12 +64,20 @@ export class TeamDetailsComponent implements OnInit {
           console.log(this.recordOwner);
           console.log(this.loggedInUser);
 
+
+          
+
         });
+
+        
 
       } else {
 
       }
     })
+
+    
+
 
 
 
@@ -77,6 +92,7 @@ export class TeamDetailsComponent implements OnInit {
 
   }
 
+ 
   onDeleteClick() {
     if (confirm("Are you sure to delete?")) {
       this.teamService.deleteTeam(this.id);

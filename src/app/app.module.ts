@@ -52,6 +52,7 @@ import { HomeComponent } from './components/home/home.component';
 //Service Imports
 import { ScrimService } from './services/scrim.service';
 import { TeamService } from './services/team.service';
+import { UpvoteService } from './services/upvote.service';
 import { PlayerService } from './services/player.service';
 import { NotificationService } from './services/notification.service';
 import { MessagesService } from './services/messages.service';
@@ -59,6 +60,8 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FilterPipe } from './pipes/filter.pipe';
+import { UpvoteButtonComponent } from './components/upvote-button/upvote-button.component';
+
 
 
 
@@ -125,7 +128,8 @@ export const firebaseConfig = {
     EditProfileComponent,
     ProfileDetailsComponent,
     MessageDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    UpvoteButtonComponent
 
   ],
   imports: [
@@ -150,7 +154,8 @@ export const firebaseConfig = {
     AuthGuard,
     NotificationService,
     MessagesService,
-    UserService
+    UserService,
+    UpvoteService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../../services/team.service';
-import { UpvoteService } from '../../services/upvote.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Team } from '../../models/Team';

@@ -64,6 +64,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 
 
 const appRoutes: Routes =[
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path:'scrims', component:AllScrimsComponent, canActivate:[AuthGuard]},
   {path:'myscrims', component:MyScrimsComponent, canActivate:[AuthGuard]},
   {path:'register',component:RegisterComponent},

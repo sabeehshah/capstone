@@ -26,31 +26,37 @@ export class AddTeamComponent implements OnInit {
     p1Xbox:'',
     p1Name:'',
     p1Twitter:'',
+    p1Steam:'',
     
     p2PSN:'',
     p2Xbox:'',
     p2Name:'',
     p2Twitter:'',
+    p2Steam:'',
    
     p3PSN:'',
     p3Xbox:'',
     p3Name:'',
     p3Twitter:'',
+    p3Steam:'',
     
     p4PSN:'',
     p4Xbox:'',
     p4Name:'',
     p4Twitter:'',
+    p4Steam:'',
     
     p5PSN:'',
     p5Xbox:'',
     p5Name:'',
     p5Twitter:'',
+    p5Steam:'',
    
     p6PSN:'',
     p6Xbox:'',
     p6Name:'',
     p6Twitter:'',
+    p6Steam:'',
     region:''
   }
   constructor(
